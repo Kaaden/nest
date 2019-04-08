@@ -1,28 +1,23 @@
-import { Module, DynamicModule } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TdModule } from './tdModel/td.module'; //引入文件
-// 配置mysql
-import { ConfigModule } from './config/config.module';
-import { ConfigService } from './config/config.service';
-
-const Orm = (): DynamicModule => {
-  const config = new ConfigService();
-  return TypeOrmModule.forRoot({
-    type: 'mysql',
-    host: config.databaseHost,
-    port: config.databasePort,
-    username: config.databaseUserName,
-    password: config.databasePassword,
-    database: config.databaseName,
-    entities: [__dirname + '/../**/*.model{.ts,.js}'],
-    synchronize:true,
-  });
-};
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { EmployeeModule } from './employee/employee.module';
 
 @Module({
-  imports: [TdModule, ConfigModule, Orm()],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: '47.96.130.201',
+      port: 3306,
+      username: 'root',
+      password: '664617',
+      database: 'myauto',
+      entities: ['src/**/**.entity{.ts,.js}'],
+      synchronize: true,
+    }),
+    EmployeeModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
