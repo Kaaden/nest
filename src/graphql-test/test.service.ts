@@ -8,4 +8,7 @@ export class testService {
   findAll(): Cat[] {
     return this.cats;
   }
+  findOneById(id: number): Cat {
+    return this.cats.find(cat => cat.id === id);
+  }
 }

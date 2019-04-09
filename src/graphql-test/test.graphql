@@ -1,6 +1,7 @@
 type Query {
-  getCats: [Cat]
+  getCats(id: ID!): Cat
   cat(id: ID!): Cat
+  getOne(id:ID!):Contents
 }
 
 # type Mutation {
@@ -16,7 +17,17 @@ type Cat {
   name: String
   age: Int
 }
-
+type Contents{
+  id:Int
+  title:String
+  category: String
+  authors: String
+  content: String
+  time: String
+  img: String
+  status: String
+  description: String
+}
 # input CreateCatInput {
 #   name: String
 #   age: Int

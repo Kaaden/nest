@@ -32,8 +32,6 @@ export class EmployeeService {
   }
 
   async findOne(id: number): Promise<Employee> {
-    return await this.employeeRepository.query(
-      `SELECT * FROM contents WHERE id=${id}`,
-    );
+    return await this.employeeRepository.findOne(id)
   }
 }
