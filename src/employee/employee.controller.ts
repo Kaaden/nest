@@ -1,8 +1,8 @@
-import { Get, Controller, Param,Post,Body } from '@nestjs/common';
+import { Get, Controller, Post, Body } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
-import { Employee } from '../entities/employee.entity';
-class CreateCatDto{
- readonly id:number
+import { Employee } from '../entities';
+class CreateCatDto {
+  readonly id: number;
 }
 @Controller('employee')
 export class EmployeeController {
@@ -15,10 +15,10 @@ export class EmployeeController {
   }
 
   @Post('findOne')
-//   : Promise<Employee>
+  //   : Promise<Employee>
   async findOne(@Body() createCatDto: CreateCatDto): Promise<Employee> {
     console.log(createCatDto);
-    let id=Number(createCatDto.id)
+    let id = Number(createCatDto.id);
     return this.employeeService.findOne(id);
   }
 
