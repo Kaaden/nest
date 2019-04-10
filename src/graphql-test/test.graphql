@@ -23,7 +23,7 @@ type Contents{
   category: String
   authors: String
   content: String
-  time: String
+  time:String
   img: String
   status: String
   description: String

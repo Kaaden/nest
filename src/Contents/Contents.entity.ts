@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
 @Entity()
 export class Contents {
   @PrimaryGeneratedColumn()
@@ -18,7 +17,7 @@ export class Contents {
   content: string;
 
   @Column()
-  time: Date;
+  time: string;
 
   @Column()
   img: string;

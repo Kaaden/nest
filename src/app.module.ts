@@ -4,7 +4,7 @@ import { Module } from '@nestjs/common';
 // import { EmployeeModule } from './employee';
 import { ConfigModule } from './config';
 import { testModule } from './graphql-test';
-// import { ScalarsModule } from './scalars';
+
 import { GraphQLModule } from '@nestjs/graphql';
 
 import { ContentsModule } from './Contents';
@@ -15,6 +15,8 @@ import { ContentsModule } from './Contents';
     // EmployeeModule,
 
     testModule,
+
+    
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],
       installSubscriptionHandlers: true,
