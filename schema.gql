@@ -1,0 +1,19 @@
+scalar Date
+type Query {
+  getCats(id: ID!): Cat
+  cat(id: ID!): Cat
+  getOne(id:ID!):Contents
+}
+
+type Contents{
+  id:Int
+  title:String
+  category: String
+  authors: String
+  content: String
+  time:Date
+  img: String
+  status: String
+  description: String
+}
+
